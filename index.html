@@ -9,9 +9,27 @@
     <link rel="icon" href="images/favicon.webp">
 </head>
 
-<body>
+<body style="background-color: #deeaee;">
 
-    <h1>Hello, world!</h1>
+    <h1>ipsloth web</h1>
+    <img src="images/sloth-pixabay.webp" alt="sloth-pic1" width="200px" height="156px">
+    <div id="ip">
+        <button type="button" style="background:#b1cbbb;color:white;" onclick="loadDoc()">Click here to check your IP</button>
+        </div>
+        
+        <script>
+        function loadDoc() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("ip").innerHTML =
+              this.responseText;
+            }
+          };
+          xhttp.open("GET", "https://ifconfig.me", true);
+          xhttp.send();
+        }
+        </script>
 
 </body>
 
